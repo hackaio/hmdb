@@ -61,6 +61,27 @@ Route::add('/view/movie', function() {
     return Blade::render('movie');
 });
 
+Route::add('/view/latest', function() {
+    $responses = file_get_contents("https://api.themoviedb.org/3/movie/popular?api_key=".$_ENV['TMDB_API']."&language=en-US");
+    echo '<pre>';
+    $responses = json_decode($responses, true);
+    $responses = $responses['results'];
+    foreach($responses as $response) {
+        print_r($response);
+    }
+    //;
+},['post', 'get']);
+
+Route::add('/view/trending', function() {
+    $responses = file_get_contents($_SERVER['TMDB_URI']."/trending/all/day?api_key=".$_ENV['TMDB_API']."&language=en-US");
+    echo '<pre>';
+    $responses = json_decode($responses, true);
+    $responses = $responses['results'];
+    foreach($responses as $response) {
+        print_r($response);
+    }
+}, ['post', 'get']);
+
 
 /****************************************************
  *                 AUTHENTICATICATION               *
