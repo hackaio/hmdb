@@ -10,6 +10,7 @@ wiki.md
 
 # local test environment
 /test/
+/views/flixtv/
 docker-build.sh
 docker-bash.sh
 docker-run.sh
