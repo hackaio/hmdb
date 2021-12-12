@@ -57,8 +57,8 @@ Route::add('/', function() {
     return Blade::render("welcome");
 });
 
-Route::add('/home', function() {
-    return Blade::render('home');
+Route::add('/view/movie', function() {
+    return Blade::render('movie');
 });
 
 
